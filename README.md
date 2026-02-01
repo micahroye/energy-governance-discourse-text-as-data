@@ -8,13 +8,13 @@ Environmental and energy policy outcomes are shaped not just by institutions, bu
 ## Core question
 How does pro-renewables framing in EU energy discourse vary over time, especially around major shocks (e.g., Fukushima, Ukraine gas cutoff, Paris Agreement)?
 
-## Methods (end-to-end)
+## Methods
 1. **Corpus construction:** extract and clean energy-related text; split into ~200-word chunks.
 2. **Human labeling:** codebook applied to a stratified sample; disagreements resolved → **gold labels**.
 3. **Supervised model:** multinomial **Naive Bayes** trained on gold labels; evaluated via cross-validation.
-4. **LLM labeling (scale):** structured prompt used to apply the same coding rules to additional text at lower marginal cost; comparisons run against gold labels.
+4. **LLM labeling:** structured prompt used to apply the same coding rules to additional text at lower marginal cost; comparisons run against gold labels.
 
-## Model evaluation (high level)
+## Model evaluation
 - Naive Bayes performs well overall but is **conservative** on the positive class (precision > recall).
 - LLM labeling can help scale classification while requiring careful calibration and validation against gold labels.
 (See the memo for full metrics and discussion.)
@@ -26,7 +26,7 @@ How does pro-renewables framing in EU energy discourse vary over time, especiall
 - R (≥ 4.3 recommended)
 - Packages: tidyverse, ggplot2, quanteda (plus any additional packages called in scripts)
 
-### Run order (matches current script names)
+### Run order
 1. `src/NewCorpus.R` — build/clean corpus and chunk text
 2. `src/newhandcode.R` — prep sample for manual coding (hand-coding workflow)
 3. `src/coded.R` — (labeled hand coded data)
